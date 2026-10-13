@@ -1,0 +1,65 @@
+{
+	"fileVersion": 15,
+	"title": "PlayGround",
+	"description": "",
+	"keyArt": "Resources/Icon128.png",
+	"docsUrl": "",
+	"apiAccess": "Private",
+	"bindings":
+	{
+		"projectId": "bf07c487-5b45-4cc4-9b99-9b9b25568840",
+		"modules":
+		{
+			"b9dd932a-4957-4ee1-9658-06355db75c94": "b9dd932a-4957-4ee1-9658-06355db75c94"
+		},
+		"bSuppressAutomaticVersePathAssignment": false,
+		"projectVersePath": ""
+	},
+	"compatibilityVersion": "42.30",
+	"requiredRedirectorStartingVersion": "42.30.58813929",
+	"editorPermissions": [],
+	"epicApp": "",
+	"sortPriority": 0,
+	"featureSet": "",
+	"plugins": [
+		{
+			"name": "b9dd932a-4957-4ee1-9658-06355db75c94",
+			"bIsRoot": true,
+			"bIsPublic": false
+		}
+	],
+	"dataSets":
+	{
+		"matchmaking":
+		{
+			"maxPlayers": 16,
+			"maxTeamCount": 16,
+			"maxTeamSize": 16,
+			"maxSocialPartySize": 16,
+			"allowJoinInProgress": true,
+			"allowSquadFillOption": false,
+			"islandQueuePrivacy": "Public",
+			"minPlayers": 1,
+			"overtimePlayerTarget": 1,
+			"queueMainDuration": 5,
+			"queueOvertimeDuration": 5,
+			"useSkillBasedMatchmaking": false,
+			"ratingType": "",
+			"splitscreenDisabled": false,
+			"version": 1
+		},
+		"experimental":
+		{
+			"DefaultPawn":
+			{
+				"bUseDefaultCharacter": true
+			},
+			"sceneGraph":
+			{
+				"bIsSceneGraphSystemAllowed": true,
+				"bEnableOneFilePerEntity": false
+			},
+			"version": 1
+		}
+	}
+}
