@@ -47,6 +47,9 @@ VS_FieldUIDispalyer := class(creative_device):
     @editable
     Button : button_device = button_device{}
 
+    @editable
+    GameManager : VS_PlayGroun = VS_PlayGroun{}
+
     StringToMesage<localizes>(value:string) : message = "{value}"
 
     Text1: string = "Count Up"
@@ -69,6 +72,8 @@ VS_FieldUIDispalyer := class(creative_device):
 
                 #Subscrbe Buttons to Verse Events
                 NewWidget.Button1Press.Subscribe(OnClickButton1)
+
+                UpdatePlayerKillCount(Player)
 
                 spawn { WaitForPlayer(Player, NewWidget) }
 
@@ -97,10 +102,10 @@ VS_FieldUIDispalyer := class(creative_device):
             else:
                 break
 
-    UpdatePlayerWidgetFields(Player : player, NewCount: int): void=
+    UpdatePlayerWidgetFields(Player : player, ToAdd: int): void=
         if(WidgetOpt := MyUIPerPlayer[Player], Widget := WidgetOpt?):
-            set Widget.CountInt += NewCount
-    
+            set Widget.CountInt += ToAdd
+        
     OnPlayerRemoved(Player:player):void=
         if(WidgetOpt := MyUIPerPlayer[Player], Widget := WidgetOpt?):
             if(PlayerUI:= GetPlayerUI[Player]):
@@ -110,10 +115,16 @@ VS_FieldUIDispalyer := class(creative_device):
         for (key -> Value : MyUIPerPlayer, key <> Player):
             if( set NewMap[key] = Value):
                 set MyUIPerPlayer = NewMap
-            
 
     OnBegin<override>()<suspends>:void=
         
         Button.InteractedWithEvent.Subscribe(CreatePlayerWidget)
 
         GetPlayspace().PlayerRemovedEvent().Subscribe(OnPlayerRemoved)
+
+    UpdatePlayerKillCount(Player : player): void=
+        if(WidgetOpt := MyUIPerPlayer[Player], Widget := WidgetOpt?):
+            set Widget.KillCountInt = GameManager.GetPlayerScore(Player)
+            Print("Kill Score: " + "{Widget.KillCountInt}")
+        else:
+            Print("OnInteractedWith: Player entry not found!")

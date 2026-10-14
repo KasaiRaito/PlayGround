@@ -56,4 +56,21 @@ VS_PlayGroun := class(creative_device):
             WeaponGranter.GrantItemIndex(Player, WeaponIDX)
 
         else:
-            Print("GrantWeapon: PlayerScore entry not found!")      
+            Print("GrantWeapon: PlayerScore entry not found!")
+
+    GetPlayerScore(Player : player): int=
+        if(Score := PlayerScore[Player]):
+            return Score
+
+        else:
+            Print("GetPlayerScore: Player entry not found!")
+            return -1
+
+<#
+    SetPlayerScore(Player : player, NewScore : int): void=
+        if(PlayerScore[Player]):
+            set PlayerScore[Player] = NewScore
+
+        else:
+            Print("SetPlayerScore: PlayerScore entry not found!")
+#>
