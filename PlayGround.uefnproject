@@ -15,7 +15,7 @@
 		"bSuppressAutomaticVersePathAssignment": false,
 		"projectVersePath": ""
 	},
-	"compatibilityVersion": "42.30",
+	"compatibilityVersion": "42.40",
 	"requiredRedirectorStartingVersion": "42.30.58813929",
 	"editorPermissions": [],
 	"epicApp": "",
